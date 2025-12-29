@@ -106,6 +106,9 @@ public function update(Request $request, $id)
         $booking = Booking::findOrFail($id);
         $booking->status_booking = $request->status_booking;
         $booking->update();
+        if(Auth::user()->role != 'admin'){
+            return redirect()->route('booking.my_bookings');
+        }
         return redirect()->route('booking.index');
     }
 

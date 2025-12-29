@@ -78,8 +78,22 @@
                             <!-- Jam Booking -->
                             <div class="form-group mt-2">
                                 <label class="form-label" for="jam_booking">Jam Booking</label>
-                                <input type="time" name="jam_booking" id="jam_booking" class="form-control"
-                                    value="{{ old('jam_booking') }}">
+                                <select id="jam_booking" name="jam_booking" class="form-select">
+                                    <option value="">-- Pilih Waktu --</option>
+                                    <option value="09:00">09:00 WIB</option>
+                                    <option value="10:00">10:00 WIB</option>
+                                    <option value="11:00">11:00 WIB</option>
+                                    <option value="12:00">12:00 WIB</option>
+                                    <option value="13:00">13:00 WIB</option>
+                                    <option value="14:00">14:00 WIB</option>
+                                    <option value="15:00">15:00 WIB</option>
+                                    <option value="16:00">16:00 WIB</option>
+                                    <option value="17:00">17:00 WIB</option>
+                                    <option value="18:00">18:00 WIB</option>
+                                    <option value="19:00">19:00 WIB</option>
+                                    <option value="20:00">20:00 WIB</option>
+                                    <option value="21:00">21:00 WIB</option>
+                                </select>
                                 @error('jam_booking')
                                     <small class="text-danger mt-2">{{ $message }}</small>
                                 @enderror

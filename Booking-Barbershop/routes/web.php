@@ -24,6 +24,26 @@ Route::post('/login-proses', [AuthController::class, 'login'])
 
 Route::middleware(['auth', 'web'])->group(function () {
 
+
+
+    Route::post('/booking/store', [BookingController::class, 'store'])->name('booking.store');
+    Route::get('/my-bookings', [BookingController::class, 'myBookings'])->name('booking.my_bookings');
+    // Route::resource('booking', BookingController::class);
+
+
+
+
+
+
+    // proses logout
+    Route::get('/logout', [AuthController::class, 'logout'])
+        ->name('logout');
+});
+
+Route::middleware(['auth', 'admin'])->group(function () {
+
+    Route::get('/dashboard', [DashboardController::class, 'index'])->name('dashboard.index');
+
     Route::get('/barber', [BarberController::class, 'index'])->name('barber.index');
     Route::get('/barber/create', [BarberController::class, 'create'])->name('barber.create');
     Route::post('/barber/store', [BarberController::class, 'store'])->name('barber.store');
@@ -42,20 +62,13 @@ Route::middleware(['auth', 'web'])->group(function () {
 
     Route::get('/booking', [BookingController::class, 'index'])->name('booking.index');
     Route::get('/booking/create', [BookingController::class, 'create'])->name('booking.create');
-    Route::post('/booking/store', [BookingController::class, 'store'])->name('booking.store');
     Route::get('/booking/edit/{id}', [BookingController::class, 'edit'])->name('booking.edit');
     Route::put('/booking/update/{id}', [BookingController::class, 'update'])->name('booking.update');
     Route::delete('/booking/destroy/{id}', [BookingController::class, 'destroy'])->name('booking.destroy');
     Route::put('/booking/update/{id}', [BookingController::class, 'updateStatus'])->name('booking.update');
-    Route::get('/booking/my-bookings', [BookingController::class, 'myBookings'])->name('booking.my_bookings');
-    // Route::resource('booking', BookingController::class);
 
 
-    Route::get('/dashboard', [DashboardController::class, 'index'])->name('dashboard.index');
-
-
-
-    // proses logout
-    Route::get('/logout', [AuthController::class, 'logout'])
-        ->name('logout');
+    // Route::get('/admin-only', function () {
+    //     return 'Halaman ini hanya untuk admin';
+    // })->name('admin.only');
 });
