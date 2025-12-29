@@ -1,43 +1,44 @@
 <nav class="pc-sidebar">
-  <div class="navbar-wrapper">
-    <div class="m-header">
-      <a href="../dashboard/index.html" class="b-brand text-primary">
-        <!-- ========   Change your logo from here   ============ -->
-        <img src="../assets/images/logo-dark.svg" class="img-fluid logo-lg" alt="logo">
-      </a>
-    </div>
-    <div class="navbar-content">
-      <ul class="pc-navbar">
-        <li class="pc-item">
-          <a href="../dashboard/index.html" class="pc-link">
-            <span class="pc-micon"><i class="ti ti-dashboard"></i></span>
-            <span class="pc-mtext">Dashboard</span>
-          </a>
-        </li>
+    <div class="navbar-wrapper">
+        <div class="m-header">
+            <a href="{{ url('dashboard') }}" class="b-brand text-primary">
+                <!-- ========   Change your logo from here   ============ -->
+                <i class="fas fa-cut fs-4"></i> <span class="text-warning mr-2">Brok</span>Barbershop
+                {{-- <img src="../assets/images/logo-dark.svg" class="img-fluid logo-lg" alt="logo"> --}}
+            </a>
+        </div>
+        <div class="navbar-content">
+            <ul class="pc-navbar">
+                <li class="pc-item">
+                    <a href="{{ url('dashboard') }}" class="pc-link">
+                        <span class="pc-micon"><i class="ti ti-dashboard"></i></span>
+                        <span class="pc-mtext">Dashboard</span>
+                    </a>
+                </li>
 
-        <li class="pc-item pc-caption">
-          <label>Fitur</label>
-          <i class="ti ti-dashboard"></i>
-        </li>
-        <li class="pc-item">
-          <a href="{{ url('barber') }}" class="pc-link">
-            <span class="pc-micon"><i class="ti ti-cut"></i></span>
-            <span class="pc-mtext">Data Barber</span>
-          </a>
-        </li>
-        <li class="pc-item">
-          <a href="{{ url('layanan') }}" class="pc-link">
-            <span class="pc-micon"><i class="ti ti-world"></i></span>
-            <span class="pc-mtext">Data Layanan</span>
-          </a>
-        </li>
-        <li class="pc-item">
-          <a href="{{ url('booking') }}" class="pc-link">
-            <span class="pc-micon"><i class="ti ti-calendar"></i></span>
-            <span class="pc-mtext">Data Booking</span>
-          </a>
-        </li>
-{{-- 
+                <li class="pc-item pc-caption">
+                    <label>Fitur</label>
+                    <i class="ti ti-dashboard"></i>
+                </li>
+                <li class="pc-item">
+                    <a href="{{ url('barber') }}" class="pc-link">
+                        <span class="pc-micon"><i class="ti ti-cut"></i></span>
+                        <span class="pc-mtext">Data Barber</span>
+                    </a>
+                </li>
+                <li class="pc-item">
+                    <a href="{{ url('layanan') }}" class="pc-link">
+                        <span class="pc-micon"><i class="ti ti-world"></i></span>
+                        <span class="pc-mtext">Data Layanan</span>
+                    </a>
+                </li>
+                <li class="pc-item">
+                    <a href="{{ url('booking') }}" class="pc-link">
+                        <span class="pc-micon"><i class="ti ti-calendar"></i></span>
+                        <span class="pc-mtext">Data Booking</span>
+                    </a>
+                </li>
+                {{-- 
         <li class="pc-item pc-caption">
           <label>Pages</label>
           <i class="ti ti-news"></i>
@@ -55,7 +56,7 @@
           </a>
         </li> --}}
 
-        {{-- <li class="pc-item pc-caption">
+                {{-- <li class="pc-item pc-caption">
           <label>Other</label>
           <i class="ti ti-brand-chrome"></i>
         </li>
@@ -101,7 +102,7 @@
           </a>
         </li>
       </ul> --}}
-      {{-- <div class="card text-center">
+                {{-- <div class="card text-center">
         <div class="card-body">
           <img src="../assets/images/img-navbar-card.png" alt="images" class="img-fluid mb-2">
           <h5>Upgrade To Pro</h5>
@@ -109,7 +110,7 @@
           <a href="https://codedthemes.com/item/berry-bootstrap-5-admin-template/" target="_blank"
           class="btn btn-success">Buy Now</a>
         </div> --}}
-      </div>
+        {{-- </div> --}}
     </div>
-  </div>
+    </div>
 </nav>
