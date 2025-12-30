@@ -6,6 +6,7 @@ use App\Http\Controllers\BookingController;
 use App\Http\Controllers\DashboardController;
 use App\Http\Controllers\HomeController;
 use App\Http\Controllers\LayananController;
+use App\Models\Booking;
 use App\Models\Layanan;
 use Illuminate\Support\Facades\Route;
 
@@ -28,6 +29,8 @@ Route::middleware(['auth', 'web'])->group(function () {
 
     Route::post('/booking/store', [BookingController::class, 'store'])->name('booking.store');
     Route::get('/my-bookings', [BookingController::class, 'myBookings'])->name('booking.my_bookings');
+    Route::put('/booking/delete/{id}', [BookingController::class, 'destroyItems'])->name('booking.delete_by_user');
+    Route::put('/booking/cancel/{id}', [BookingController::class, 'cancelBooking'])->name('booking.cancel_by_user');
     // Route::resource('booking', BookingController::class);
 
 
@@ -38,6 +41,7 @@ Route::middleware(['auth', 'web'])->group(function () {
     // proses logout
     Route::get('/logout', [AuthController::class, 'logout'])
         ->name('logout');
+
 });
 
 Route::middleware(['auth', 'admin'])->group(function () {

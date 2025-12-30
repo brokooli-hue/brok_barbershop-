@@ -19,6 +19,7 @@
                                     <th>No</th>
                                     <th>Nama Barber</th>
                                     <th>Foto Barber</th>
+                                    <th>Kuota</th>
                                     <th>Aksi</th>
                                 </tr>
                             </thead>
@@ -37,6 +38,7 @@
                                                 <p class="text-muted">Tidak ada foto tersedia.</p>
                                             @endif
                                         </td>
+                                        <td>{{ $b->kuota }}</td>
                                         <td>
                                             <!-- Tombol Edit -->
                                             <a href="{{ route('barber.edit', $b->id) }}" class="btn btn-warning btn-sm">
@@ -57,7 +59,7 @@
                                     </tr>
                                 @empty
                                     <tr>
-                                        <td colspan="4" class="text-center">Data barber belum ada</td>
+                                        <td colspan="5" class="text-center">Data barber belum ada</td>
                                     </tr>
                                 @endforelse
                             </tbody>

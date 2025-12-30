@@ -65,7 +65,7 @@
                           <div class="booking-card" data-status="confirmed">
                               <div class="booking-header">
                                   <div class="booking-id">
-                                      <i class="fas fa-receipt"></i> #BK-20241230-001
+                                      <i class="fas fa-receipt"></i> #{{ $item->no_booking }}
                                   </div>
                                   <span class="status-badge confirmed">{{ $item->status_booking }}</span>
                               </div>
@@ -86,7 +86,7 @@
                                           </div>
                                           <div class="info-content">
                                               <h4>{{ $item->tanggal_booking }}</h4>
-                                              <p>{{ $item->waktu_booking }}</p>
+                                              <p>{{ $item->jam_booking }}</p>
                                           </div>
                                       </div>
                                       <div class="info-item">
@@ -116,21 +116,13 @@
                                           datang 10 menit sebelum jadwal.</span>
                                   </div>
                               </div>
-                              <div class="booking-footer">
-                                  <button class="btn btn-secondary" onclick="cancelBooking('BK-20241230-001')">
-                                      <i class="fas fa-times"></i> Batalkan
-                                  </button>
-                                  <button class="btn btn-primary" id="btn-hidden" onclick="return">
-                                      <i class="fas fa-eye"></i> Sembunyikan
-                                  </button>
-                              </div>
                           </div>
                       @elseif ($item->status_booking == 'selesai')
                           <!-- Booking Card 3 - Completed -->
                           <div class="booking-card" data-status="completed">
                               <div class="booking-header">
                                   <div class="booking-id">
-                                      <i class="fas fa-receipt"></i> #BK-20241228-003
+                                      <i class="fas fa-receipt"></i> #{{ $item->no_booking }}
                                   </div>
                                   <span class="status-badge completed">{{ $item->status_booking }}</span>
                               </div>
@@ -182,12 +174,19 @@
                                   </div>
                               </div>
                               <div class="booking-footer">
-                                  {{-- <button class="btn btn-success" onclick="rateBooking('BK-20241228-003')">
-                                      <i class="fas fa-star"></i> Beri Rating & Ulasan
-                                  </button> --}}
                                   <a href="{{ route('home') }}" class="btn btn-secondary">
                                       <i class="fas fa-redo"></i> Booking Lagi
                                   </a>
+                                  <form action="{{ route('booking.delete_by_user', $item->id) }}" method="POST"
+                                      style="display:inline-block;"
+                                      onsubmit="return confirm('Yakin ingin menyembunyikan booking ini dari riwayat?')">
+                                      @csrf
+                                      @method('PUT')
+                                      <input type="hidden" name="is_hidden_by_user" value="true">
+                                      <button class="btn btn-primary" onclick="return">
+                                          <i class="fas fa-trash"></i> Hapus dari Riwayat
+                                      </button>
+                                  </form>
                               </div>
                           </div>
                       @elseif ($item->status_booking == 'batal')
@@ -195,7 +194,7 @@
                           <div class="booking-card" data-status="cancelled">
                               <div class="booking-header">
                                   <div class="booking-id">
-                                      <i class="fas fa-receipt"></i> #BK-20241227-004
+                                      <i class="fas fa-receipt"></i> #{{ $item->no_booking }}
                                   </div>
                                   <span class="status-badge cancelled">{{ $item->status_booking }}</span>
                               </div>
@@ -242,6 +241,16 @@
                                   <a href="{{ route('home') }}" class="btn btn-secondary">
                                       <i class="fas fa-redo"></i> Booking Lagi
                                   </a>
+                                  <form action="{{ route('booking.delete_by_user', $item->id) }}" method="POST"
+                                      style="display:inline-block;"
+                                      onsubmit="return confirm('Yakin ingin menyembunyikan booking ini dari riwayat?')">
+                                      @csrf
+                                      @method('PUT')
+                                      <input type="hidden" name="is_hidden_by_user" value="true">
+                                      <button class="btn btn-primary" onclick="return">
+                                          <i class="fas fa-trash"></i> Hapus dari Riwayat
+                                      </button>
+                                  </form>
                               </div>
                           </div>
                       @else
@@ -249,7 +258,7 @@
                           <div class="booking-card" data-status="pending">
                               <div class="booking-header">
                                   <div class="booking-id">
-                                      <i class="fas fa-receipt"></i> #BK-20241231-002
+                                      <i class="fas fa-receipt"></i> #{{ $item->no_booking }}
                                   </div>
                                   <span class="status-badge pending">{{ $item->status_booking }}</span>
                               </div>
@@ -301,20 +310,16 @@
                                   </div>
                               </div>
                               <div class="booking-footer">
-                                  <form action="{{ route('booking.update', $item->id) }}" method="POST"
+                                  <form action="{{ route('booking.cancel_by_user', $item->id) }}" method="POST"
                                       style="display:inline-block;"
-                                      onsubmit="return confirm('Yakin ingin mengkonfirmasi booking ini?')">
+                                      onsubmit="return confirm('Yakin ingin membatalkan  bookingan ini?')">
                                       @csrf
                                       @method('PUT')
                                       <input type="hidden" name="status_booking" value="batal">
-                                      <button class="btn btn-secondary" onclick="cancelBooking('BK-20241231-002')">
+                                      <button class="btn btn-secondary">
                                           <i class="fas fa-times"></i> Batalkan
                                       </button>
                                   </form>
-
-                                  <button class="btn btn-primary" onclick="viewDetail('BK-20241231-002')">
-                                      <i class="fas fa-eye"></i> Lihat Detail
-                                  </button>
                               </div>
                           </div>
                       @endif

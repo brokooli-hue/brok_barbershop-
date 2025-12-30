@@ -10,12 +10,14 @@ class Booking extends Model
 
     protected $fillable = [
         'user_id',
+        'no_booking',
         'no_hp',
         'layanan_id',
         'barber_id',
         'tanggal_booking',
         'jam_booking',
-        'status_booking'
+        'status_booking',
+        'is_hidden_by_user'
     ];
 
     public function layanan() {
@@ -29,4 +31,6 @@ class Booking extends Model
     public function user() {
         return $this->belongsTo(User::class);
     }
+
+
 }

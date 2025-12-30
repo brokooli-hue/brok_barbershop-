@@ -18,7 +18,7 @@
                                 <tr>
                                     <th>No</th>
                                     <th>Nama Layanan</th>
-                                    <th>Nama Barber</th>
+                                    {{-- <th>Nama Barber</th> --}}
                                     <th>Harga</th>
                                     <th>Aksi</th>
                                 </tr>
@@ -28,7 +28,7 @@
                                     <tr>
                                         <td>{{ $loop->iteration }}</td>
                                         <td>{{ $l->nama_layanan }}</td>
-                                        <td>{{ $l->barber->nama_barber }}</td>
+                                        {{-- <td>{{ $l->barber->nama_barber }}</td> --}}
                                         <td>{{ $l->harga }}</td>
                                         <td>
                                             <!-- Tombol Edit -->
@@ -50,7 +50,7 @@
                                     </tr>
                                 @empty
                                     <tr>
-                                        <td colspan="5" class="text-center">Data layanan belum ada</td>
+                                        <td colspan="4" class="text-center">Data layanan belum ada</td>
                                     </tr>
                                 @endforelse
                             </tbody>

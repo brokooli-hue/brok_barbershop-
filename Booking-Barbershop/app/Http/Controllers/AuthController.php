@@ -19,6 +19,10 @@ class AuthController extends Controller
         $request->validate([
             'email' => 'required|email',
             'password' => 'required',
+        ], [
+            'email.required' => 'Email wajib diisi.',
+            'email.email' => 'Format email tidak valid.',
+            'password.required' => 'Password wajib diisi.',
         ]);
 
         if (Auth::attempt($request->only('email', 'password'))) {
@@ -32,8 +36,8 @@ class AuthController extends Controller
         }
 
         return back()->withErrors([
-            'email' => 'Email atau password salah',
-        ])->withInput();
+            'error' => 'Email atau password salah',
+        ])->onlyInput();
     }
 
     public function logout(Request $request)

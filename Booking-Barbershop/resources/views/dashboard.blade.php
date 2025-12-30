@@ -29,7 +29,7 @@
                     <div class="d-flex align-items-center justify-content-between">
                         <div>
                             <p class="text-muted mb-1">Total Barber</p>
-                            <h3 class="mb-0">{{ count($barber) ?? 0 }}</h3>
+                            <h3 class="mb-0">{{ count($barbers) ?? 0 }}</h3>
                             <small class="text-muted">
                                 <i class="ti ti-users"></i> Barber aktif
                             </small>
@@ -48,7 +48,7 @@
                     <div class="d-flex align-items-center justify-content-between">
                         <div>
                             <p class="text-muted mb-1">Total Layanan</p>
-                            <h3 class="mb-0">{{ count($layanan) ?? 0 }}</h3>
+                            <h3 class="mb-0">{{ count($layanans) ?? 0 }}</h3>
                             <small class="text-muted">
                                 <i class="ti ti-list"></i> Jenis layanan
                             </small>
@@ -67,7 +67,7 @@
                     <div class="d-flex align-items-center justify-content-between">
                         <div>
                             <p class="text-muted mb-1">Total Booking</p>
-                            <h3 class="mb-0">{{ count($booking) ?? 00 }}</h3>
+                            <h3 class="mb-0">{{ count($bookings) ?? 00 }}</h3>
                             <small class="text-muted">
                                 <i class="ti ti-calendar"></i> Semua booking
                             </small>
@@ -157,7 +157,6 @@
                                     <th>No</th>
                                     <th>Nama Layanan</th>
                                     <th>Harga</th>
-                                    <th>Durasi</th>
                                 </tr>
                             </thead>
                             <tbody>
@@ -165,8 +164,7 @@
                                     <tr>
                                         <td>{{ $loop->iteration }}</td>
                                         <td>{{ $l->nama_layanan }}</td>
-                                        <td>Rp {{ number_format($l->harga_layanan ?? 0, 0, ',', '.') }}</td>
-                                        <td>{{ $l->durasi_layanan ?? '-' }} menit</td>
+                                        <td>Rp {{ number_format($l->harga ?? 0, 0, ',', '.') }}</td>
                                     </tr>
                                 @empty
                                     <tr>

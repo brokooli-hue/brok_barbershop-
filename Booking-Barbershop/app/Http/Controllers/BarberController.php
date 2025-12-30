@@ -24,6 +24,7 @@ class BarberController extends Controller
     }
     public function store(Request $request)
     {
+
         $request->validate([
             'nama_barber' => 'required',
             'gambar_barber' => 'required|image|mimes:jpg,jpeg,png'
@@ -31,6 +32,8 @@ class BarberController extends Controller
 
         $barber = new Barber();
         $barber->nama_barber = $request->nama_barber;
+        $barber->kuota = 6; 
+        $barber->kuota_reset = now('asia/makassar');
 
         if ($request->hasFile('gambar_barber')) {
             $path = $request->file('gambar_barber')->store('img', 'public');

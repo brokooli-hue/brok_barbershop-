@@ -21,9 +21,11 @@
                                     <option value="potong jenggot">Potong Jenggot</option>
                                     <option value="corn rambut">Corn Rambut</option>
                                     <option value="styling rambut">Styling Rambut</option>
+                                    <option value="desain rambut">Desain Rambut</option>
+                                    <option value="massage">Massage</option>
                                 </select>
                             </div>
-                            <div class="form-group">
+                            {{-- <div class="form-group">
                                 <label class="form-label" for="barber_id">Barber</label>
                                 <select name="barber_id" id="barber_id" class="form-select" id="inputGroupSelect02">
                                     <option disabled selected>Pilih</option>
@@ -38,7 +40,7 @@
                                         {{ $message }}
                                     </small>
                                 @enderror
-                            </div>
+                            </div> --}}
                             <div class="form-group">
                                 <label class="form-label" for="harga">Harga </label>
                                 <input type="text" class="form-control" id="harga" name="harga"

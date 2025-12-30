@@ -31,7 +31,7 @@
                                     </small>
                                 @enderror
                             </div>
-                            <div class="form-group">
+                            {{-- <div class="form-group">
                                 <label class="form-label" for="barber_id">Barber</label>
                                 <select name="barber_id" id="barber_id" class="form-select" id="inputGroupSelect02">
                                     <option disabled selected>Pilih</option>
@@ -47,7 +47,7 @@
                                         {{ $message }}
                                     </small>
                                 @enderror
-                            </div>
+                            </div> --}}
                             <div class="form-group">
                                 <label class="form-label" for="harga">Harga </label>
                                 <input type="text" class="form-control" id="harga" name="harga"

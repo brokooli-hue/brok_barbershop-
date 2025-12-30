@@ -19,6 +19,7 @@
                                 <thead>
                                     <tr>
                                         <th>No</th>
+                                        <th>No Booking</th>
                                         <th>Nama</th>
                                         <th>Layanan</th>
                                         <th>Barber</th>
@@ -34,6 +35,7 @@
                                     @forelse ($booking as $b)
                                         <tr>
                                             <td>{{ $loop->iteration }}</td>
+                                            <td>{{ $b->no_booking }}</td>
                                             <td>{{ $b->user->name }}</td>
                                             <td>{{ $b->layanan->nama_layanan }}</td>
                                             <td>{{ $b->barber->nama_barber }}</td>
@@ -73,6 +75,15 @@
                                                             </button>
                                                         </form>
                                                     </div>
+                                                @elseif ($b->status_booking == 'konfirmasi')
+                                                    <form action="{{ route('booking.update', $b->id) }} " method="POST">
+                                                        @csrf
+                                                        @method('PUT')
+                                                        <input type="hidden" name="status_booking" value="selesai">
+                                                        <button type="submit" class="btn btn-success btn-sm">
+                                                            Selesai
+                                                        </button>
+                                                    </form>
                                                 @else
                                                     <form action="{{ route('booking.destroy', $b->id) }}" method="POST"
                                                         style="display:inline-block;"
@@ -88,7 +99,7 @@
                                         </tr>
                                     @empty
                                         <tr>
-                                            <td colspan="10" class="text-center">Data layanan belum ada</td>
+                                            <td colspan="11" class="text-center">Data layanan belum ada</td>
                                         </tr>
                                     @endforelse
                                 </tbody>

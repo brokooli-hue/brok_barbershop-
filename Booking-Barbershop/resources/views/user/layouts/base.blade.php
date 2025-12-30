@@ -18,7 +18,6 @@
                 <li><a href="{{ route('home') }}">Home</a></li>
                 <li><a href="#services">Layanan</a></li>
                 <li><a href="#gallery">Barber</a></li>
-                <li><a href="#booking">Booking</a></li>
                 <li><a href="#contact">Kontak</a></li>
                 <li><a href="{{ route('booking.my_bookings') }}">Riwayat Booking</a></li>
                 @if (Auth::check())

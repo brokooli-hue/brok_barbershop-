@@ -15,6 +15,7 @@ return new class extends Migration
             $table->id();
             $table->string('nama_barber');
             $table->integer('kuota')->default(6);
+            $table->timestamp('kuota_reset')->nullable();
             $table->string('gambar_barber')->nullable();
             $table->timestamps();
         });

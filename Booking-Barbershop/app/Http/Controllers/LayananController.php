@@ -29,16 +29,16 @@ class LayananController extends Controller
     {
         $request->validate([
             'nama_layanan' => 'required',
-            'barber_id' => 'required',
+            // 'barber_id' => 'required',
             'harga' => 'required',
         ], [
             'nama_layanan.required' => 'Pilih layanan yang tersedia',
-            'barber_id.required' => 'Isi nama barber',
+            // 'barber_id.required' => 'Isi nama barber',
             'harga.required' => 'Isi Harga'
         ]);
         $layanan = new Layanan();
         $layanan->nama_layanan = $request->nama_layanan;
-        $layanan->barber_id = $request->barber_id;
+        // $layanan->barber_id = $request->barber_id;
         $layanan->harga = $request->harga;
         $layanan->save();
         return redirect()->route('layanan.index');
@@ -47,16 +47,16 @@ class LayananController extends Controller
     {
         $request->validate([
             'nama_layanan' => 'required',
-            'barber_id' => 'required',
+            // 'barber_id' => 'required',
             'harga' => 'required',
         ], [
             'nama_layanan.required' => 'Pilih layanan yang tersedia',
-            'barber_id.required' => 'Isi nama barber',
+            // 'barber_id.required' => 'Isi nama barber',
             'harga.required' => 'Isi Harga'
         ]);
         $layanan =Layanan::findOrFail($id);
         $layanan->nama_layanan = $request->nama_layanan;
-        $layanan->barber_id = $request->barber_id;
+        // $layanan->barber_id = $request->barber_id;
         $layanan->harga = $request->harga;
         $layanan->update();
         return redirect()->route('layanan.index');
